@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./css/login.css">
+    <link rel="stylesheet" href="./iconfonts/iconfont/iconfont.css">
+    <title>学生成绩管理系统</title>
+</head>
+
+<body>
+    <div class="cursor-1"></div>
+    <div class="cursor-2"></div>
+    <div class="topic">
+        <i class="iconfont icon-guanlixitong-jiaoseguanli" id="myicon"></i>
+        <span>学生成绩管理系统</span>
+    </div>
+    <section>
+        <div class="color"></div>
+        <div class="color"></div>
+        <div class="color"></div>
+        <div class="box">
+            <div class="square" style="--i:0;"></div>
+            <div class="square" style="--i:1;"></div>
+            <div class="square" style="--i:2;"></div>
+            <div class="square" style="--i:3;"></div>
+            <div class="square" style="--i:4;"></div>
+            <div class="container">
+                <div class="form">
+                    <h2>登录</h2>
+                    <form id="loginForm" onsubmit="return handleFormSubmit()">
+                        <div class="inputBox">
+                            <input type="text" placeholder="ID号" id="id" name="id" required>
+                        </div>
+                        <div class="inputBox">
+                            <input type="password" placeholder="密码" id="password" name="password" required>
+                        </div>
+                        <select class="options" name="options" id="role">
+                            <option value="student">学生</option>
+                            <option value="teacher">老师</option>
+                            <option value="admin">管理人员</option>
+                        </select>
+                        <div id="error_message" ></div>
+                        <div id="success_message" ></div>
+                        <div class="inputBox">
+                            <input type="submit" value="登录">
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+    <script src="./js/login.js"></script>
+</body>
+
+</html>

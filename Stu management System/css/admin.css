@@ -1,0 +1,518 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+    overflow: hidden;
+}
+
+/*背景颜色*/
+section .color {
+    position: absolute;
+    filter: blur(150px);
+}
+
+section .color:nth-child(1) {
+    top: -350px;
+    width: 800px;
+    height: 500px;
+    background: #b1aba4;
+}
+
+section .color:nth-child(2) {
+    bottom: -150px;
+    left: 100px;
+    width: 500px;
+    height: 400px;
+    background: #f9b2a9;
+}
+
+section .color:nth-child(3) {
+    bottom: 50px;
+    right: 100px;
+    width: 800px;
+    height: 500px;
+    background: #eed6ca;
+}
+
+/* 头部区域样式 */
+.topic {
+    background-color: #9d9292;
+    color: white;
+    padding: 20px;
+    text-align: center;
+    font-size: 24px;
+    font-weight: bold;
+    width: 100%;
+    /* 宽度铺满屏幕 */
+    box-sizing: border-box;
+    /* 确保内边距不会影响总宽度 */
+}
+
+.topic #myicon {
+    font-size: 35px;
+    color: rgba(119, 85, 104, 0.62);
+    display: inline-block;
+    margin-top: 5px;
+    margin-left: 8px;
+    margin-right: 10px;
+}
+
+.topic span {
+    margin-top: 5px;
+    position: relative;
+    letter-spacing: 3px;
+}
+
+/* 页面主要部分（包含左侧边栏和右侧内容区域） */
+.main-content {
+    display: flex;
+    flex: 1;
+    /* 确保主要内容部分占据剩余空间 */
+    width: 100%;
+}
+
+/* 左侧边栏样式 */
+.sidebar {
+    width: 400px;
+    background: #e2bdb8;
+    color: white;
+    padding: 20px;
+    box-sizing: border-box;
+    height: 100%;
+    /* 让边栏填充整个视口高度 */
+    position: absolute;
+    /* 固定在页面左侧 */
+}
+
+.sidebar h2 {
+    margin-top: 5px;
+    margin-bottom: 50px;
+    margin-left: 120px;
+}
+
+/* 边栏菜单项样式 */
+.sidebar a {
+    display: block;
+    background: rgba(247, 247, 247, 0.62);
+    text-align: center;
+    color: #000000;
+    font-size: 17px;
+    text-decoration: none;
+    padding: 40px;
+    margin: 45px 0;
+    border-radius: 15px;
+    transition: background-color 0.3s;
+}
+
+.sidebar a:hover {
+    background-color: #5555553b;
+    transform: scale(1.05);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    transition: all 0.3s ease;
+}
+
+/* 右侧内容区域样式 */
+
+.content {
+    margin-left: 400px;
+    /* 给右侧内容区域留出边栏的空间 */
+    padding: 20px;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+/* 隐藏所有内容区域 */
+.section {
+    display: none;
+}
+
+/* active 类使内容区域显示 */
+.section.active {
+    display: block;
+}
+
+/* 初始内容区域样式 */
+.section {
+    display: none;
+}
+
+.active {
+    display: block;
+}
+
+/*section1*/
+#section1 h1 {
+    margin-left: 50px;
+    font-size: 15vh;
+}
+
+#section1 .box-container {
+    margin-top: 20px;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1.5rem;
+
+}
+
+#section1 .box-container .box {
+    flex: 1 1 30rem;
+    text-align: center;
+    padding: 1.5rem;
+    background: #ffffff2b;
+    border-radius: 15px;
+    box-shadow: .5rem 1rem rgba(0, 0, 0, 0.1);
+    z-index: 2;
+}
+
+#section1 .box-container .box i {
+    font-size: 2.4rem;
+    color: #fff;
+    background: rgb(240, 137, 126);
+    border-radius: 50%;
+}
+
+#section1 .box-container .box h3 {
+    color: #444;
+    /* font-size: 20px; */
+    padding-top: 10px;
+    padding-bottom: 5px;
+}
+
+#section1 .box-container .box:hover {
+    background-color: #5555553b;
+    transform: scale(0.95);
+    transition: all 0.5s ease;
+}
+
+#section1 .box-container button {
+    height: 35px;
+    margin-top: 4px;
+    width: 10%;
+    margin-left: 500px;
+    border: none;
+    border-radius: 15px;
+    background: rgba(0, 0, 0, 0.2);
+    color: #2b2929;
+}
+
+#section1 .box-container button:hover {
+    background: #fff;
+    z-index: 2;
+}
+
+/* 
+.content a {
+    display: inline-block;
+    margin-top: 20px;
+    background: #fff;
+    color: #888;
+    cursor: pointer;
+} */
+
+
+/*section1*/
+
+/*section2*/
+#section2 .form-container {
+    display: flex;
+    /* 设置父容器为 flex 布局 */
+    justify-content: space-between;
+    /* 在横向上平均分配空间 */
+    align-items: center;
+    /* 垂直居中 */
+    position: relative;
+    max-width: 800px;
+    height: 600px;
+    margin: 60px auto;
+    padding: 30px;
+    padding-top: 100px;
+    padding-bottom: 90px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    background-color: #f9f9f9;
+    z-index: 2;
+}
+
+/* 表单部分 */
+#section2 #updateForm {
+    flex: 1;
+    /* 让表单部分占用剩余的空间 */
+    margin-right: 20px;
+    /* 给表单和图片之间留点空隙 */
+}
+
+#section2 .form-item {
+    margin-bottom: 20px;
+}
+
+#section2 .form-item label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: bold;
+}
+
+#section2 .form-item input,
+#section2 .form-item select,
+#section2 .form-item button {
+    width: 90%;
+    /* 使输入框和按钮宽度自适应 */
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+#section2 .form-item button[type="reset"] {
+    background-color: #ebd8b0;
+}
+
+#adminID:disabled {
+    cursor: not-allowed;
+}
+
+/* 图片部分 */
+#section2 .image-container {
+    width: 350px;
+    /* 图片容器宽度 */
+    height: 500px;
+    /* 图片容器高度 */
+    overflow: hidden;
+    /* 确保超出容器的部分被隐藏 */
+}
+
+#section2 .image-container img {
+    width: 100%;
+    /* 让图片适应容器的宽度 */
+    height: 100%;
+    /* 让图片适应容器的高度 */
+    object-fit: cover;
+    /* 保持图片比例，裁剪多余部分 */
+}
+
+#section2 .form-item button {
+    width: auto;
+    background-color: #bbd6ec;
+    color: white;
+    cursor: pointer;
+}
+
+/*section2*/
+/*section3*/
+#section3 .square {
+    position: relative;
+    z-index: 2;
+    width: 650px;
+    height: 650px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    top: 50px;
+    left: 180px;
+    margin: 5px;
+
+}
+
+#section3 .square span:nth-child(1) {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    border: 2px solid #fff;
+    border-radius: 38% 62% 37%/41% 44% 56% 59%;
+    transition: 0.5s;
+    animation: animate 6s linear infinite;
+}
+
+#section3 .square:hover span:nth-child(1) {
+    background: rgba(220, 123, 112, 0.5);
+    border: none;
+
+}
+
+#section3 .square span:nth-child(2) {
+    position: absolute;
+    /* top: 150px;
+    left: 50px; */
+    width: 100%;
+    height: 100%;
+    border: 2px solid #fff;
+    border-radius: 38% 62% 37%/41% 44% 56% 59%;
+    transition: 0.5s;
+    animation: animate 4s linear infinite;
+}
+
+#section3 .square:hover span:nth-child(2) {
+    background: rgba(220, 123, 112, 0.5);
+    border: none;
+
+}
+
+#section3 .square span:nth-child(3) {
+    position: absolute;
+    /* top: 150px;
+    left: 50px; */
+    width: 100%;
+    height: 100%;
+    border: 2px solid #fff;
+    border-radius: 38% 62% 37%/41% 44% 56% 59%;
+    transition: 0.5s;
+    animation: animate2 10s linear infinite;
+}
+
+#section3 .square:hover span:nth-child(3) {
+    background: rgba(220, 123, 112, 0.5);
+    border: none;
+
+}
+
+@keyframes animate {
+    0% {
+        transform: rotate(0deg);
+    }
+
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+@keyframes animate2 {
+    0% {
+        transform: rotate(360deg);
+    }
+
+    100% {
+        transform: rotate(0deg);
+    }
+}
+
+#section3 .square .add {
+    z-index: 400;
+    width: 100%;
+    position: relative;
+    /* padding: 40px 60px; */
+    /* 阴影效果 */
+    text-align: left;
+    /* 表单内部文字左对齐 */
+    width: 400px;
+    /* 固定表单宽度，方便居中和布局 */
+    margin-top: 20px;
+}
+
+/* 
+#section3 .square .add label,
+#section3 .square .add input,
+#section3 .square .add select {
+    display: block;
+    width: 20%;
+
+    margin-bottom: 5px;
+
+}
+
+#section3 .square .add input,
+#section3 .square .add select {
+    padding: 4px;
+   
+    font-size: 16px;
+
+} */
+/* 表单内元素垂直排列 */
+#section3 .square .add label,
+#section3 .square .add input,
+#section3 .square .add select {
+    display: block;
+    /* 一行显示 */
+    width: 100%;
+    /* 占满父容器宽度 */
+    margin-bottom: 5px;
+    /* 控件之间的垂直间距 */
+}
+
+/* 输入框和下拉框的样式 */
+#section3 .square .add input,
+#section3 .square .add select {
+    padding: 5px;
+    /* 输入框内边距 */
+    font-size: 15px;
+    /* 调整字体大小 */
+    border: 1px solid #ccc;
+    /* 边框样式 */
+    border-radius: 4px;
+    /* 圆角 */
+    box-sizing: border-box;
+    /* 防止宽度溢出 */
+}
+
+#section3 .add button {
+    /* 按钮与输入框保持适当距离 */
+    padding: 10px 20px;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+#section3 .square .add button {
+    background: rgba(0, 0, 0, 0.1);
+    position: relative;
+    display: inline-block;
+    margin-top: 10px;
+    border: 2px solid #fff;
+    padding: 6px 18px;
+    text-decoration: none;
+    color: #fff;
+    font-weight: 600;
+    border-radius: 73% 27% 44% 56%/49% 44% 56% 51%;
+    transition: 0.5s;
+    margin-left: 35%;
+}
+
+#section3 .square .add button:hover {
+    background: #e0b1c1;
+    color: #ffffff72;
+}
+
+/*section3*/
+
+/*section4*/
+
+#section4 .search-bar {
+    display: flex;
+    gap: 5px;
+    margin-bottom: 40px;
+}
+
+#section4 .search-bar .ebutton {
+    background-color: #bbd6ec;
+    border: none;
+}
+
+#section4 .search-bar .ebutton:hover {
+    background-color: #ddd;
+    transform: scale(0.95);
+    transition: all 0.5s ease;
+}
+
+#section4 .custom-table {
+    border-radius: 15px;
+    /* 圆角 */
+    overflow: hidden;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    /* 阴影 */
+}
+
+#section4 .el-table th,
+#section4 .el-table td {
+    text-align: center;
+    vertical-align: middle;
+}
+
+#section4 .custom-table .delete:hover {
+    color: red !important;
+    /* 悬停变红 */
+}
+
+/*section4*/

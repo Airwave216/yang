@@ -1,0 +1,396 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>老师系统</title>
+    <link rel="stylesheet" href="./css/teacher.css">
+    <link rel="stylesheet" href="./iconfonts/iconfont2/iconfont.css">
+    <link rel="stylesheet" href="./iconfonts/iconfont/iconfont.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+
+<body>
+    <section>
+        <div class="color"></div>
+        <div class="color"></div>
+        <div class="color"></div>
+        <header class="topic">
+            <i class="iconfont icon-guanlixitong-jiaoseguanli" id="myicon"></i>
+            <span>老师系统</span>
+        </header>
+
+        <!-- 左侧内容区域 -->
+        <nav class="sidebar">
+            <h2>边栏菜单</h2>
+            <a href="#" onclick="changeContent('section1'); return false">信息查询</a>
+            <a href="#" onclick="changeContent('section2'); return false">修改信息</a>
+            <a href="#" onclick="changeContent('section3'); return false">开课</a>
+            <a href="#" onclick="changeContent('section4'); return false">全部课程</a>
+            <a href="#" onclick="changeContent('section5'); return false">成绩登录</a>
+            <a href="#" onclick="changeContent('section6'); return false">成绩统计</a>
+        </nav>
+        <div class="main-content">
+
+
+            <!-- 右侧内容区域 -->
+            <div class="content">
+                <div id="section1" class="section active">
+                    <h1>WELCOME!</h1>
+                    <div class="box-container">
+                        <div class="box">
+                            <i class="iconfont icon-xuehao"></i>
+                            <h3>职工编号</h3>
+                            <p id="username">-</p>
+                        </div>
+                        <div class="box">
+                            <i class="iconfont icon-xingming"></i>
+                            <h3>姓名</h3>
+                            <p id="name">-</p>
+                        </div>
+                        <div class="box">
+                            <i class="iconfont icon-xingbie"></i>
+                            <h3>性别</h3>
+                            <p id="gender">-</p>
+                        </div>
+                        <div class="box">
+                            <i class="iconfont icon-shengrix"></i>
+                            <h3>生日</h3>
+                            <p id="birthDate">-</p>
+                        </div>
+                        <div class="box">
+                            <i class="iconfont icon-xueyuan"></i>
+                            <h3>学院</h3>
+                            <p id="college">-</p>
+                        </div>
+                        <div class="box">
+                            <i class="iconfont icon-zhuanyemingcheng"></i>
+                            <h3>专业名称</h3>
+                            <p id="major">-</p>
+                        </div>
+                        <button onclick="changeContent('section2')">跳转到修改信息</button>
+
+                    </div>
+                </div>
+                <div id="section2" class="section">
+                    <div class="form-container">
+                        <form id="updateForm">
+                            <div class="form-item">
+                                <label for="teacherID">职工编号</label>
+                                <input type="text" id="teacherID" name="teacherID" value="" disabled>
+                            </div>
+
+                            <div class="form-item">
+                                <label for="names">姓名</label>
+                                <input type="text" id="names" name="names" value="">
+                            </div>
+
+                            <div class="form-item">
+                                <label for="genders">性别</label>
+                                <select id="genders" name="genders">
+                                    <option value="male">男</option>
+                                    <option value="female">女</option>
+                                </select>
+                            </div>
+
+                            <div class="form-item">
+                                <label for="birthdate">生日</label>
+                                <input type="date" id="birthdate" name="birthdate" value="">
+                            </div>
+
+                            <div class="form-item">
+                                <label for="colleges">学院</label>
+                                <input type="text" id="colleges" name="colleges" value="">
+                            </div>
+
+                            <div class="form-item">
+                                <label for="majors">专业名称</label>
+                                <input type="text" id="majors" name="majors" value="">
+                            </div>
+
+                            <div class="form-item">
+                                <button type="submit">保存修改</button>
+                                <button type="reset" id="resetBtn">重置</button>
+                            </div>
+                        </form>
+                        <div class="image-container">
+                            <img src="./image/chiikawa.png" alt="Placeholder Image">
+                        </div>
+                    </div>
+                </div>
+                <div id="section3" class="section">
+                    <div class="form-container">
+                        <form id="uForm">
+                            <div class="form-item">
+                                <label for="classname">课程名称</label>
+                                <input type="text" id="classname" name="classname" value="">
+                            </div>
+                            <div class="form-item">
+                                <label for="time">课程周数</label>
+                                <input type="text" id="time" name="time" value="1-15">
+                            </div>
+                            <div class="form-item">
+                                <label for="credit">学时</label>
+                                <input type="text" id="credit" name="credit" value="2">
+                            </div>
+                            <div class="form-item">
+                                <label for="day">日期</label>
+                                <select id="day" name="day">
+                                    <option value="周一">周一</option>
+                                    <option value="周二">周二</option>
+                                    <option value="周三">周三</option>
+                                    <option value="周四">周四</option>
+                                    <option value="周五">周五</option>
+                                    <option value="周六">周六</option>
+                                    <option value="周日">周日</option>
+                                </select>
+                            </div>
+
+                            <div class="form-item">
+                                <label for="period">课程起始时间</label>
+                                <select id="period" name="period">
+                                    <!-- 生成1到10的下拉选项 -->
+                                    <script>
+                                        document.getElementById('period').innerHTML = Array.from({ length: 10 }, function (_, i) {
+                                            return '<option value="' + (i + 1) + '">' + (i + 1) + '</option>';
+                                        }).join('');
+                                    </script>
+                                </select>
+                            </div>
+
+                            <div class="form-item">
+                                <label for="duration">每课课时</label>
+                                <select id="duration" name="duration">
+                                    <!-- 同样生成1到10的下拉选项 -->
+                                    <script>
+                                        document.getElementById('duration').innerHTML = Array.from({ length: 10 }, function (_, i) {
+                                            return '<option value="' + (i + 1) + '">' + (i + 1) + '</option>';
+                                        }).join('');
+                                    </script>
+                                </select>
+                            </div>
+
+                            <div class="form-item">
+                                <label for="position">教室位置</label>
+                                <input type="text" id="position" name="position" value="二教103">
+                            </div>
+
+                            <div class="form-item">
+                                <button type="submit">保存</button>
+                            </div>
+                        </form>
+
+                    </div>
+                </div>
+                <div id="section4" class="section">
+                    <font color="#ffffff">
+                        <table id="timetable" border="0" width="1000" align="center" height="700">
+                            <tr align="middle">
+                                <td width="30"></td>
+                                <td width="50" align="center" height="30">周一</td>
+                                <td width="50" align="center" height="30">周二</td>
+                                <td width="50" align="center" height="30">周三</td>
+                                <td width="50" align="center" height="30">周四</td>
+                                <td width="50" align="center" height="30">周五</td>
+                                <td width="50" align="center" height="30">周六</td>
+                                <td width="50" align="center" height="30">周日</td>
+                            </tr>
+                            <!-- 10 节课 -->
+                            <tr>
+                                <td class="f1">1</td>
+                                <td class="f2"></td>
+                                <td class="f3"></td>
+                                <td class="f4"></td>
+                                <td class="f5"></td>
+                                <td class="f6"></td>
+                                <td class="f7"></td>
+                                <td class="f8"></td>
+                            </tr>
+                            <tr>
+                                <td class="f1">2</td>
+                                <td class="f2"></td>
+                                <td class="f3"></td>
+                                <td class="f4"></td>
+                                <td class="f5"></td>
+                                <td class="f6"></td>
+                                <td class="f7"></td>
+                                <td class="f8"></td>
+                            </tr>
+                            <tr>
+                                <td class="f1">3</td>
+                                <td class="f2"></td>
+                                <td class="f3"></td>
+                                <td class="f4"></td>
+                                <td class="f5"></td>
+                                <td class="f6"></td>
+                                <td class="f7"></td>
+                                <td class="f8"></td>
+                            </tr>
+                            <tr>
+                                <td class="f1">4</td>
+                                <td class="f2"></td>
+                                <td class="f3"></td>
+                                <td class="f4"></td>
+                                <td class="f5"></td>
+                                <td class="f6"></td>
+                                <td class="f7"></td>
+                                <td class="f8"></td>
+                            </tr>
+                            <tr>
+                                <td class="f1">5</td>
+                                <td class="f2"></td>
+                                <td class="f3"></td>
+                                <td class="f4"></td>
+                                <td class="f5"></td>
+                                <td class="f6"></td>
+                                <td class="f7"></td>
+                                <td class="f8"></td>
+                            </tr>
+                            <tr>
+                                <td class="f1">6</td>
+                                <td class="f2"></td>
+                                <td class="f3"></td>
+                                <td class="f4"></td>
+                                <td class="f5"></td>
+                                <td class="f6"></td>
+                                <td class="f7"></td>
+                                <td class="f8"></td>
+                            </tr>
+                            <tr>
+                                <td class="f1">7</td>
+                                <td class="f2"></td>
+                                <td class="f3"></td>
+                                <td class="f4"></td>
+                                <td class="f5"></td>
+                                <td class="f6"></td>
+                                <td class="f7"></td>
+                                <td class="f8"></td>
+                            </tr>
+                            <tr>
+                                <td class="f1">8</td>
+                                <td class="f2"></td>
+                                <td class="f3"></td>
+                                <td class="f4"></td>
+                                <td class="f5"></td>
+                                <td class="f6"></td>
+                                <td class="f7"></td>
+                                <td class="f8"></td>
+                            </tr>
+                            <tr>
+                                <td class="f1">9</td>
+                                <td class="f2"></td>
+                                <td class="f3"></td>
+                                <td class="f4"></td>
+                                <td class="f5"></td>
+                                <td class="f6"></td>
+                                <td class="f7"></td>
+                                <td class="f8"></td>
+                            </tr>
+                            <tr>
+                                <td class="f1">10</td>
+                                <td class="f2"></td>
+                                <td class="f3"></td>
+                                <td class="f4"></td>
+                                <td class="f5"></td>
+                                <td class="f6"></td>
+                                <td class="f7"></td>
+                                <td class="f8"></td>
+                            </tr>
+                        </table>
+                        <div id="popup" class="popup">
+                            <div class="popup-content">
+                                <span class="close">&times;</span>
+                                <p id="popup-info"></p>
+                            </div>
+                        </div>
+                    </font>
+                </div>
+                <div id="section5" class="section">
+                    <div class="box-container">
+
+                        <!-- 其他表单内容保持不变 -->
+                        <form id="courseForm">
+                            <!-- 课程名称输入框 -->
+                            <div class="form-item">
+                                <label for="course">课程名称</label>
+                                <input type="text" id="course" name="course" placeholder="请输入课程名称" required>
+                            </div>
+
+                            <!-- 选择考试时间 -->
+                            <div class="form-item">
+                                <label for="examDate">考试时间</label>
+                                <select id="examDate" name="examDate" required>
+                                    <option value="">请选择考试类型</option>
+                                    <option value="半期考试">半期考试</option>
+                                    <option value="平时成绩">平时成绩</option>
+                                    <option value="期末考试">期末考试</option>
+                                </select>
+                            </div>
+
+                            <!-- 提交按钮 -->
+                            <div class="form-item">
+                                <button type="button" id="submitButton">生成学生名单</button>
+                            </div>
+                        </form>
+                        <div id="studentsTableContainer">
+                            <table id="studentsTable">
+                                <thead>
+                                    <tr>
+                                        <th>课程</th>
+                                        <th>考试时间</th>
+                                        <th>学生姓名</th>
+                                        <th>成绩</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <!-- 动态生成的学生成绩行 -->
+                                </tbody>
+                            </table>
+                        </div>
+                        <!-- 保存按钮 -->
+                        <div class="form-item">
+                            <button type="button" id="saveButton" disabled>保存成绩</button>
+                        </div>
+
+                    </div>
+                </div>
+                <div id="section6" class="section">
+                    <div class="form-container">
+                        <!-- 输入框区域 -->
+                        <div class="input-container">
+                            <div class="input-item">
+                                <label for="courseName">课程信息</label>
+                                <input type="text" id="courseName" placeholder="请输入课程名称">
+                            </div>
+                            <div class="input-item">
+                                <label for="passingScore">及格分数线</label>
+                                <input type="number" id="passingScore" placeholder="请输入及格分数线">
+                            </div>
+                            <div class="input-item">
+                                <label for="goodScore">良好分数线</label>
+                                <input type="number" id="goodScore" placeholder="请输入良好分数线">
+                            </div>
+                            <div class="input-item">
+                                <label for="excellentScore">优秀分数线</label>
+                                <input type="number" id="excellentScore" placeholder="请输入优秀分数线">
+                            </div>
+                        </div>
+
+                        <!-- 按钮 -->
+                        <div style="text-align: center; margin-top: 10px;">
+                            <button id="generateChartBtn">生成柱形图</button>
+                        </div>
+
+                        <!-- 柱形图显示区域 -->
+                        <canvas id="myBarChart" width="400" height="200"></canvas>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <script src="./js/teacher.js"></script>
+</body>
+
+</html>
