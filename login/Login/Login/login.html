@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>四川电网节能减排方案</title>
+    <link rel="stylesheet" href="./login.css">
+    <link rel="stylesheet" href="./icon/iconfont.css">
+</head>
+
+<body>
+    <div class="content">
+        <div class="box-img">
+            <div class="head" id="title">碳排放因子归纳呈现</div>
+            <div class="subtitle" id="subtitle">碳核算的核心概念</div>
+            <div class="img-bg image" id="image" style="background-image: url('./image/lv1.png');"></div>
+            <div class="controls">
+                <button class="arrow" onclick="prevSlide()"><i class="iconfont icon-jiantouloukong-zuo"></i></button>
+                <button class="arrow" onclick="nextSlide()"><i class="iconfont icon-jiantouloukong-you"></i></button>
+            </div>
+        </div>
+
+        <div class="box-forms">
+            <div class="logon">
+                <div class="title">
+                    <span>四川电力网络管理平台</span>
+                </div>
+                <!-- <div class="other-login">
+                <div class="other-login-items">
+
+                </div>
+            </div> -->
+                <div class="forms">
+                    <input type="text" placeholder="用户名" class="ipts protrusion">
+                    <input type="password" placeholder="密码" class="ipts protrusion">
+
+                    <!-- <div class="options">
+                        <label><input type="checkbox"> 记住密码</label>
+                        <a href="#">忘记密码？</a>
+                    </div> -->
+                    <div class="options">
+                        <label class="custom-checkbox">
+                            <input type="checkbox">
+                            <span class="checkmark"></span> 记住密码
+                        </label>
+                        <a href="#" class="forgot-password">忘记密码？</a>
+                    </div>
+
+                    <!-- <button class="login-btn protrusion">登录</button> -->
+                    <!-- <button class="register-btn protrusion">注册</button> -->
+                    <a href="#" class="login-btn protrusion">登录</a>
+                    <a href="#" class="register-btn protrusion">注册</a>
+                </div>
+
+            </div>
+        </div>
+    </div>
+    <script>
+        const slides = [
+            { title: "碳排放因子归纳呈现", subtitle: "碳核算的核心概念", image: "./image/lv1.png" },
+            { title: "碳排放量直观展示", subtitle: "便利碳管理和碳核算", image: "./image/people.png" },
+            { title: "节能降碳策略推荐", subtitle: "促进碳减排，低碳消费", image: "./image/lv3.png" }
+        ];
+        let currentIndex = 0;
+
+        function updateSlide() {
+            document.getElementById("title").textContent = slides[currentIndex].title;
+            document.getElementById("subtitle").textContent = slides[currentIndex].subtitle;
+            document.getElementById("image").style.backgroundImage = `url('${slides[currentIndex].image}?t=${new Date().getTime()}')`;
+        }
+
+        function prevSlide() {
+            currentIndex = (currentIndex - 1 + slides.length) % slides.length;
+            updateSlide();
+        }
+
+        function nextSlide() {
+            currentIndex = (currentIndex + 1) % slides.length;
+            updateSlide();
+        }
+
+    </script>
+</body>
+
+</html>

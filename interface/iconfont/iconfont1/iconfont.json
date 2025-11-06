@@ -1,0 +1,16 @@
+{
+  "id": "4474408",
+  "name": "project",
+  "font_family": "iconfont",
+  "css_prefix_text": "icon-",
+  "description": "",
+  "glyphs": [
+    {
+      "icon_id": "731048",
+      "name": "welcome-[转换]",
+      "font_class": "welcomezhuanhuan",
+      "unicode": "e6b1",
+      "unicode_decimal": 59057
+    }
+  ]
+}

@@ -1,0 +1,304 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>四川电网节能减排方案</title>
+    <link rel="stylesheet" href="./login.css">
+    <link rel="stylesheet" href="./icon/iconfont.css">
+</head>
+
+<body>
+    <div class="content">
+        <div class="box-img">
+            <div class="head" id="title">碳排放因子归纳呈现</div>
+            <div class="subtitle" id="subtitle">碳核算的核心概念</div>
+            <div class="img-bg image" id="image" style="background-image: url('./image/lv1.png');"></div>
+            <div class="controls">
+                <button class="arrow" onclick="prevSlide()"><i class="iconfont icon-jiantouloukong-zuo"></i></button>
+                <button class="arrow" onclick="nextSlide()"><i class="iconfont icon-jiantouloukong-you"></i></button>
+            </div>
+        </div>
+
+        <div class="box-forms">
+            <div class="logon" id="logonForm">
+                <div class="title">
+                    <span>四川电力网络管理平台</span>
+                </div>
+                <!-- <div class="other-login">
+                <div class="other-login-items">
+
+                </div>
+            </div> -->
+                <div class="forms">
+                    <input type="text" placeholder="用户名" class="ipts protrusion">
+                    <input type="password" placeholder="密码" class="ipts protrusion">
+
+                    <!-- <div class="options">
+                        <label><input type="checkbox"> 记住密码</label>
+                        <a href="#">忘记密码？</a>
+                    </div> -->
+                    <div class="options">
+                        <label class="custom-checkbox">
+                            <input type="checkbox">
+                            <span class="checkmark"></span> 记住密码
+                        </label>
+                        <a href="#" class="forgot-password">忘记密码？</a>
+                    </div>
+
+                    <!-- <button class="login-btn protrusion">登录</button> -->
+                    <!-- <button class="register-btn protrusion">注册</button> -->
+                    <a href="#" class="login-btn protrusion">登录</a>
+                    <a href="#" class="register-btn protrusion" onclick="showRegister()">注册</a>
+                </div>
+                <div class="circle circle1"></div>
+                <div class="circle circle2"></div>
+                <div class="circle circle3"></div>
+                <div class="circle circle4"></div>
+
+            </div>
+            <div class="register" id="registerForm" style="display: none;">
+                <div class="title">
+                    <span>注册账号</span>
+                </div>
+                <div class="forms">
+                    <input type="text" placeholder="用户名" class="ipts protrusion">
+                    <input type="email" placeholder="邮箱" class="ipts protrusion">
+                    <input type="password" placeholder="密码" class="ipts protrusion">
+                    <input type="password" placeholder="确认密码" class="ipts protrusion">
+                    <!-- <div class="options">
+                        <label class="custom-checkbox">
+                            <input type="checkbox">
+                            <span class="checkmark"></span> 同意条款
+                        </label>
+                    </div> -->
+                    <div class="btn-row">
+                        <a href="#" class="register-btn protrusion">注册</a>
+                        <a href="#" class="login-btn protrusion" onclick="showLogon()">登录</a>
+                    </div>
+
+                </div>
+                <div class="circle circle1"></div>
+                <div class="circle circle2"></div>
+                <div class="circle circle3"></div>
+                <div class="circle circle4"></div>
+            </div>
+
+        </div>
+        <img src="./image/IMG_3805.PNG" class="circle-img" />
+    </div>
+    <script>
+        const slides = [
+            { title: "碳排放因子归纳呈现", subtitle: "碳核算的核心概念", image: "./image/lv1.png" },
+            { title: "碳排放量直观展示", subtitle: "便利碳管理和碳核算", image: "./image/people.png" },
+            { title: "节能降碳策略推荐", subtitle: "促进碳减排，低碳消费", image: "./image/lv3.png" }
+        ];
+        // let currentIndex = 0;
+
+        // function updateSlide() {
+        //     document.getElementById("title").textContent = slides[currentIndex].title;
+        //     document.getElementById("subtitle").textContent = slides[currentIndex].subtitle;
+        //     document.getElementById("image").style.backgroundImage = `url('${slides[currentIndex].image}?t=${new Date().getTime()}')`;
+        // }
+
+        // function prevSlide() {
+        //     currentIndex = (currentIndex - 1 + slides.length) % slides.length;
+        //     updateSlide();
+        // }
+
+        // function nextSlide() {
+        //     currentIndex = (currentIndex + 1) % slides.length;
+        //     updateSlide();
+        // }
+        // setInterval(() => {
+        //     nextSlide();
+        // }, 3000);
+        let currentIndex = 0;
+        let autoPlayInterval = null;
+        let restartTimer = null;
+
+
+        function updateSlide() {
+            const titleEl = document.getElementById("title");
+            const subtitleEl = document.getElementById("subtitle");
+            const imageEl = document.getElementById("image");
+
+            imageEl.classList.add("fade");
+            titleEl.classList.add("fade");
+            subtitleEl.classList.add("fade");
+
+            titleEl.textContent = slides[currentIndex].title;
+            subtitleEl.textContent = slides[currentIndex].subtitle;
+            imageEl.style.backgroundImage = `url('${slides[currentIndex].image}?t=${new Date().getTime()}')`;
+
+            setTimeout(() => {
+                imageEl.classList.remove("fade");
+                titleEl.classList.remove("fade");
+                subtitleEl.classList.remove("fade");
+            }, 500);
+        }
+
+        function startAutoPlay() {
+            autoPlayInterval = setInterval(() => {
+                nextSlide(true);
+            }, 5000);
+        }
+
+        function stopAutoPlay() {
+            clearInterval(autoPlayInterval);
+        }
+
+        function nextSlide(auto = false) {
+            currentIndex = (currentIndex + 1) % slides.length;
+            updateSlide();
+            if (!auto) {
+                stopAutoPlay();
+                clearTimeout(restartTimer);
+                restartTimer = setTimeout(() => {
+                    startAutoPlay();
+                }, 3000);
+            }
+        }
+
+
+        function prevSlide(auto = false) {
+            currentIndex = (currentIndex - 1 + slides.length) % slides.length;
+            updateSlide();
+
+            if (!auto) {
+                stopAutoPlay();
+                clearTimeout(restartTimer);
+                restartTimer = setTimeout(() => {
+                    startAutoPlay();
+                }, 10000);
+            }
+        }
+
+        startAutoPlay();
+        function showRegister() {
+            document.getElementById("logonForm").style.display = "none";
+            document.getElementById("registerForm").style.display = "block";
+        }
+
+        function showLogon() {
+            document.getElementById("registerForm").style.display = "none";
+            document.getElementById("logonForm").style.display = "block";
+        }
+        document.querySelector('.forgot-password').addEventListener('click', function (e) {
+            e.preventDefault();
+            document.getElementById('modalOverlay').style.display = 'block';
+            document.getElementById('forgotModal').style.display = 'block';
+        });
+
+        function closeModal() {
+            document.getElementById('modalOverlay').style.display = 'none';
+            document.getElementById('forgotModal').style.display = 'none';
+        }
+
+        // 切换邮箱/手机号
+        function switchMethod(method) {
+            document.getElementById('phoneMethod').style.display = method === 'phone' ? 'block' : 'none';
+            document.getElementById('emailMethod').style.display = method === 'email' ? 'block' : 'none';
+            document.querySelectorAll('.tab-btn').forEach(btn => btn.classList.remove('active'));
+            document.querySelector(`.tab-btn[onclick="switchMethod('${method}')"]`).classList.add('active');
+        }
+
+        // 模拟发送验证码
+        function sendPhoneCode() {
+            const phone = document.getElementById('phone').value;
+            if (!phone) return alert("请输入手机号");
+            alert("验证码已发送至手机号：" + phone);
+            startCountdown('sendPhoneCodeBtn');
+        }
+
+        function sendEmailCode() {
+            const email = document.getElementById('email').value;
+            if (!email) return alert("请输入邮箱");
+            alert("验证码已发送至邮箱：" + email);
+            startCountdown('sendEmailCodeBtn');
+        }
+
+        // 倒计时
+        function startCountdown(btnId) {
+            let btn = document.getElementById(btnId);
+            let seconds = 60;
+            btn.disabled = true;
+            btn.textContent = `重新获取(${seconds}s)`;
+
+            const timer = setInterval(() => {
+                seconds--;
+                btn.textContent = `重新获取(${seconds}s)`;
+                if (seconds === 0) {
+                    clearInterval(timer);
+                    btn.disabled = false;
+                    btn.textContent = '获取验证码';
+                }
+            }, 1000);
+        }
+
+        // 重置密码处理
+        function resetPassword(type) {
+            const newPwd = document.getElementById(`${type}NewPwd`).value;
+            const confirmPwd = document.getElementById(`${type}ConfirmPwd`).value;
+
+            if (newPwd !== confirmPwd) {
+                alert("两次输入的密码不一致！");
+                return;
+            }
+
+            alert(`${type === 'phone' ? '手机号' : '邮箱'}方式重置成功！`);
+            closeModal();
+        }
+
+
+    </script>
+
+    <div class="modal-overlay" id="modalOverlay"></div>
+
+    <!-- 忘记密码主弹窗 -->
+    <div class="modal" id="forgotModal">
+        <div class="modal-content">
+            <span class="close-btn" onclick="closeModal()">&times;</span>
+            <h2>找回密码</h2>
+
+            <!-- 手机号找回 -->
+            <div id="phoneMethod" class="method">
+                <input type="text" id="phone" placeholder="请输入注册手机号">
+                <div class="verify-group">
+                    <input type="text" id="phoneCode" placeholder="请输入验证码">
+                    <button id="sendPhoneCodeBtn" onclick="sendPhoneCode()">获取验证码</button>
+                </div>
+                <input type="password" id="phoneNewPwd" placeholder="请输入新密码">
+                <input type="password" id="phoneConfirmPwd" placeholder="确认新密码">
+                <button class="reset" onclick="resetPassword('phone')">重置密码</button>
+            </div>
+
+            <!-- 邮箱找回 -->
+            <div id="emailMethod" class="method" style="display: none;">
+                <input type="email" id="email" placeholder="请输入注册邮箱">
+                <div class="verify-group">
+                    <input type="text" id="emailCode" placeholder="请输入验证码">
+                    <button id="sendEmailCodeBtn" onclick="sendEmailCode()">获取验证码</button>
+                </div>
+                <input type="password" id="emailNewPwd" placeholder="请输入新密码">
+                <input type="password" id="emailConfirmPwd" placeholder="确认新密码">
+                <button class="reset" onclick="resetPassword('email')">重置密码</button>
+            </div>
+
+            <!-- 虚线分隔符 -->
+            <div class="divider"></div>
+
+            <!-- 切换找回方式 -->
+            <div class="tabs">
+                <button class="tab-btn active" onclick="switchMethod('phone')">手机号找回</button>
+                <button class="tab-btn" onclick="switchMethod('email')">邮箱找回</button>
+            </div>
+
+        </div>
+    </div>
+
+
+</body>
+
+</html>

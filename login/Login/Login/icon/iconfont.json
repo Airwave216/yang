@@ -1,0 +1,23 @@
+{
+  "id": "4474408",
+  "name": "project",
+  "font_family": "iconfont",
+  "css_prefix_text": "icon-",
+  "description": "",
+  "glyphs": [
+    {
+      "icon_id": "21151557",
+      "name": "箭头镂空-右",
+      "font_class": "jiantouloukong-you",
+      "unicode": "e612",
+      "unicode_decimal": 58898
+    },
+    {
+      "icon_id": "21151562",
+      "name": "箭头镂空-左",
+      "font_class": "jiantouloukong-zuo",
+      "unicode": "e613",
+      "unicode_decimal": 58899
+    }
+  ]
+}
