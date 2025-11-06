@@ -1,0 +1,51 @@
+{
+  "id": "",
+  "name": "",
+  "font_family": "iconfont",
+  "css_prefix_text": "icon-",
+  "description": "",
+  "glyphs": [
+    {
+      "icon_id": "4488835",
+      "name": "专业名称",
+      "font_class": "zhuanyemingcheng",
+      "unicode": "e627",
+      "unicode_decimal": 58919
+    },
+    {
+      "icon_id": "5535523",
+      "name": "姓名",
+      "font_class": "xingming",
+      "unicode": "e63e",
+      "unicode_decimal": 58942
+    },
+    {
+      "icon_id": "6561873",
+      "name": "学院",
+      "font_class": "xueyuan",
+      "unicode": "e624",
+      "unicode_decimal": 58916
+    },
+    {
+      "icon_id": "9112532",
+      "name": "学号",
+      "font_class": "xuehao",
+      "unicode": "e77d",
+      "unicode_decimal": 59261
+    },
+    {
+      "icon_id": "12437188",
+      "name": "生日",
+      "font_class": "shengrix",
+      "unicode": "e62e",
+      "unicode_decimal": 58926
+    },
+    {
+      "icon_id": "36196346",
+      "name": "性别",
+      "font_class": "xingbie",
+      "unicode": "e61d",
+      "unicode_decimal": 58909
+    }
+  ]
+}

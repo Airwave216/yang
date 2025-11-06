@@ -1,0 +1,593 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+    overflow: hidden;
+}
+
+/*背景颜色*/
+section .color {
+    position: absolute;
+    filter: blur(150px);
+}
+
+section .color:nth-child(1) {
+    top: -350px;
+    width: 800px;
+    height: 500px;
+    background: #b1aba4;
+}
+
+section .color:nth-child(2) {
+    bottom: -150px;
+    left: 100px;
+    width: 500px;
+    height: 400px;
+    background: #f9b2a9;
+}
+
+section .color:nth-child(3) {
+    bottom: 50px;
+    right: 100px;
+    width: 800px;
+    height: 500px;
+    background: #eed6ca;
+}
+
+/* 头部区域样式 */
+.topic {
+    background-color: #9d9292;
+    color: white;
+    padding: 20px;
+    text-align: center;
+    font-size: 24px;
+    font-weight: bold;
+    width: 100%;
+    /* 宽度铺满屏幕 */
+    box-sizing: border-box;
+    /* 确保内边距不会影响总宽度 */
+}
+
+.topic #myicon {
+    font-size: 35px;
+    color: rgba(119, 85, 104, 0.62);
+    display: inline-block;
+    margin-top: 5px;
+    margin-left: 8px;
+    margin-right: 10px;
+}
+
+.topic span {
+    margin-top: 5px;
+    position: relative;
+    letter-spacing: 3px;
+}
+
+/* 页面主要部分（包含左侧边栏和右侧内容区域） */
+.main-content {
+    display: flex;
+    flex: 1;
+    /* 确保主要内容部分占据剩余空间 */
+    width: 100%;
+}
+
+/* 左侧边栏样式 */
+.sidebar {
+    width: 400px;
+    background: #e2bdb8;
+    color: white;
+    padding: 20px;
+    box-sizing: border-box;
+    height: 100%;
+    /* 让边栏填充整个视口高度 */
+    position: absolute;
+    /* 固定在页面左侧 */
+}
+
+.sidebar h2 {
+    margin-top: 5px;
+    margin-bottom: 50px;
+    margin-left: 120px;
+}
+
+/* 边栏菜单项样式 */
+.sidebar a {
+    display: block;
+    background: rgba(247, 247, 247, 0.62);
+    text-align: center;
+    color: #000000;
+    font-size: 17px;
+    text-decoration: none;
+    padding: 20px;
+    margin: 45px 0;
+    border-radius: 15px;
+    transition: background-color 0.3s;
+}
+
+.sidebar a:hover {
+    background-color: #5555553b;
+    transform: scale(1.05);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    transition: all 0.3s ease;
+}
+
+/* 右侧内容区域样式 */
+
+.content {
+    margin-left: 400px;
+    /* 给右侧内容区域留出边栏的空间 */
+    padding: 20px;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+
+/*section1*/
+#section1 h1 {
+    margin-left: 50px;
+    font-size: 15vh;
+}
+
+#section1 .box-container {
+    margin-top: 20 px;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1.5rem;
+
+}
+
+#section1 .box-container .box {
+    flex: 1 1 30rem;
+    text-align: center;
+    padding: 1.6rem;
+    background: #ffffff2b;
+    border-radius: 15px;
+    box-shadow: .5rem 1rem rgba(0, 0, 0, 0.1);
+    z-index: 2;
+}
+
+#section1 .box-container .box i {
+    font-size: 2.4rem;
+    color: #fff;
+    background: rgb(240, 137, 126);
+    border-radius: 50%;
+}
+
+#section1 .box-container .box h3 {
+    color: #444;
+    /* font-size: 20px; */
+    padding-top: 10px;
+    padding-bottom: 5px;
+}
+
+#section1 .box-container .box:hover {
+    background-color: #5555553b;
+    transform: scale(0.95);
+    transition: all 0.5s ease;
+}
+
+#section1 .box-container button {
+    height: 35px;
+    margin-top: 4px;
+    width: 10%;
+    margin-left: 500px;
+    border: none;
+    border-radius: 15px;
+    background: rgba(0, 0, 0, 0.2);
+    color: #2b2929;
+}
+
+#section1 .box-container button:hover {
+    background: #fff;
+    z-index: 2;
+}
+
+/* 
+.content a {
+    display: inline-block;
+    margin-top: 20px;
+    background: #fff;
+    color: #888;
+    cursor: pointer;
+} */
+
+/* 隐藏所有内容区域 */
+.section {
+    display: none;
+}
+
+
+.section.active {
+    display: block;
+}
+
+
+.section {
+    display: none;
+}
+
+.active {
+    display: block;
+}
+
+/* .section {
+    display: none;
+}
+
+.section.active {
+    display: block;
+} */
+
+/*section1*/
+/*section2*/
+#section2 .form-container {
+    display: flex;
+    /* 设置父容器为 flex 布局 */
+    justify-content: space-between;
+    /* 在横向上平均分配空间 */
+    align-items: center;
+    /* 垂直居中 */
+    position: relative;
+    max-width: 800px;
+    height: 600px;
+    margin: 60px auto;
+    padding: 30px;
+    padding-top: 100px;
+    padding-bottom: 90px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    background-color: #f9f9f9;
+    z-index: 2;
+}
+
+/* 表单部分 */
+#section2 #updateForm {
+    flex: 1;
+    /* 让表单部分占用剩余的空间 */
+    margin-right: 20px;
+    /* 给表单和图片之间留点空隙 */
+}
+
+#section2 .form-item {
+    margin-bottom: 20px;
+}
+
+#section2 .form-item label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: bold;
+}
+
+#section2 .form-item input,
+#section2 .form-item select,
+#section2 .form-item button {
+    width: 90%;
+    /* 使输入框和按钮宽度自适应 */
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+#section2 .form-item button[type="reset"] {
+    background-color: #ebd8b0;
+}
+
+#teacherID:disabled {
+    cursor: not-allowed;
+}
+
+/* 图片部分 */
+#section2 .image-container {
+    width: 350px;
+    /* 图片容器宽度 */
+    height: 500px;
+    /* 图片容器高度 */
+    overflow: hidden;
+    /* 确保超出容器的部分被隐藏 */
+}
+
+#section2 .image-container img {
+    width: 100%;
+    /* 让图片适应容器的宽度 */
+    height: 100%;
+    /* 让图片适应容器的高度 */
+    object-fit: cover;
+    /* 保持图片比例，裁剪多余部分 */
+}
+
+#section2 .form-item button {
+    width: auto;
+    background-color: #bbd6ec;
+    color: white;
+    cursor: pointer;
+}
+
+/*section2*/
+/*section3*/
+#section3 .form-container {
+    position: relative;
+    max-width: 800px;
+    height: 600px;
+    margin: 60px auto;
+    padding: 14px;
+    padding-left: 30px;
+    padding-right: 30px;
+    /* padding-top: 100px;
+    padding-bottom: 90px; */
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    background-color: #f9f9f9;
+    z-index: 2;
+}
+
+
+#section3 .form-item {
+    margin-top: 5px;
+    margin-bottom: 20px;
+}
+
+#section3 .form-item label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: bold;
+}
+
+#section3 .form-item input,
+#section3 .form-item select,
+#section3 .form-item button {
+    width: 100%;
+    /* 使输入框和按钮宽度自适应 */
+    padding: 5px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+#section3 .form-item button {
+    width: 60px;
+    background-color: #bbd6ec;
+    color: white;
+    cursor: pointer;
+}
+
+/*section3*/
+/*section4*/
+#section4 table {
+    margin-top: 15px;
+    margin-left: 50px;
+    position: relative;
+    background-color: #fceeecf8;
+    table-layout: fixed;
+    /* 表格宽度由列宽决定 */
+    border-collapse: collapse;
+    /* 合并边框，单元格间无间隙 */
+    z-index: 2;
+    border: 1px solid #ded5d5b9;
+    /* 表格整体边框 */
+    border-radius: 8px;
+    /* 外部圆角 */
+    overflow: hidden;
+    /* 修复圆角边框 */
+}
+
+#section4 table td,
+#section4 table th {
+    padding: 10px;
+    /* 增加内容与边框间距 */
+    text-align: center;
+    /* 内容居中 */
+    border: 1px solid #ded5d5b9;
+    /* 单元格边框 */
+    border-radius: 0;
+    /* 内部单元格不需要圆角 */
+}
+
+#section4 td {
+    color: #333333;
+}
+
+/* 为特定的单元格设置背景色 */
+#section4 table td.bg-dark {
+    background-color: #333333;
+    color: #ffffff;
+    /* 白色字体 */
+}
+
+/* 弹窗样式 */
+#section4 .popup {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    justify-content: center;
+    align-items: center;
+    z-index: 2;
+}
+
+#section4 .popup-content {
+    background: white;
+    padding: 20px;
+    border-radius: 8px;
+    width: 300px;
+    position: relative;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+#section4 .close {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    font-size: 20px;
+    cursor: pointer;
+}
+
+#section4 .popup #popup-info {
+    color: #000000;
+    white-space: pre-wrap;
+    word-wrap: break-word;
+}
+
+
+/*section4*/
+
+/*section5*/
+#section5 .box-container {
+    position: relative;
+    z-index: 5;
+}
+
+/* 为学生成绩表格添加滚动条 */
+#section5 .box-container #studentsTableContainer {
+    max-height: 400px;
+    overflow-y: auto;
+    /* 启用垂直滚动条 */
+
+    margin-top: 10px;
+    /* 可选：调整表格与其它内容的间距 */
+}
+
+#section5 #studentsTable thead {
+    position: sticky;
+    /* 固定表头 */
+    top: 0;
+    /* 固定在容器顶部 */
+    background-color: #fff;
+    /* 设置背景色避免背景透明 */
+    z-index: 1;
+    /* 确保表头在表格内容上方 */
+}
+
+#section5 .form-item {
+    margin-bottom: 25px;
+}
+
+#section5 label {
+    display: block;
+    margin-bottom: 5px;
+}
+
+#section5 input,
+#section5 select {
+    width: 30%;
+    padding: 8px;
+    margin: 5px 0;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+#section5 input:focus {
+    outline: none;
+    border: 2px solid #c96282;
+    box-shadow: 0 0 5px #c962839b;
+}
+
+#section5 select:focus {
+    outline: none;
+    border: 2px solid #c96282;
+    box-shadow: 0 0 5px #c962839b;
+}
+
+#section5 table {
+    width: 100%;
+    border-collapse: collapse;
+    text-align: center;
+}
+
+#section5 table,
+#section5 th,
+#section5 td {
+    border: 1px solid #ccc;
+}
+
+th,
+#section5 #section5 td {
+    padding: 8px;
+    text-align: center;
+}
+
+#section5 button {
+    margin-top: 20px;
+    padding: 10px 15px;
+    background-color: #bbd6ec;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+#section5 button:disabled {
+    background-color: #ddd;
+    cursor: not-allowed;
+}
+
+/*section5*/
+/*section6*/
+#section6 .form-container {
+    position: relative;
+    z-index: 2;
+}
+
+
+#section6 .input-container {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 20px;
+}
+
+#section6 .input-item {
+    flex: 1;
+    margin-right: 10px;
+}
+
+#section6 .input-item:last-child {
+    margin-right: 0;
+}
+
+#section6 input {
+    width: 100%;
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+#section6 button {
+    padding: 10px 15px;
+    background-color: #f2ccc6;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    margin-bottom: 30px;
+}
+
+#section6 button:hover {
+    background-color: #ccaaa5;
+}
+
+/* #section6 canvas {
+
+    margin: 20px auto;
+    width: 100%;
+
+} */
+
+
+#section6 input:focus {
+    outline: none;
+
+    border: 2px solid #c96282;
+
+    box-shadow: 0 0 5px #c962839b;
+
+}
+
+/*section6*/
